@@ -1,0 +1,17 @@
+ol {
+    display: block;
+    margin-left: 450px;
+    margin-top: 20px;
+  }
+  
+  ol li {
+    position: relative;
+  }
+
+  li {
+    cursor: pointer;
+  }
+  
+  ol li:not(:last-child) {
+    margin-bottom: 16px;
+  }

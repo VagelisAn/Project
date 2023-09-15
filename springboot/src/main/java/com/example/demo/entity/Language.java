@@ -16,9 +16,10 @@ import lombok.Setter;
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "language_id", sequenceName = "id_sequence", initialValue = 1)
+//    @SequenceGenerator(name = "language_id", sequenceName = "id_sequence", initialValue = 1)
+    @Column(name = "language_id")
     private Long id;
-    private String name;
+    private String language;
 
 
 }

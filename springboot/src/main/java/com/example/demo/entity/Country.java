@@ -17,7 +17,7 @@ import java.sql.Date;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
+//    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
     @Column(name = "country_id")
     private Long id;
     private String name;

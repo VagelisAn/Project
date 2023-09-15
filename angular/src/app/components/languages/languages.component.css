@@ -1,0 +1,17 @@
+p {
+    margin-top: 25px;
+    text-align: center;
+}
+ol {
+    display: block;
+    margin-left: 450px;
+    margin-top: 20px;
+  }
+  
+  ol li {
+    position: relative;
+  }
+
+  ol li:not(:last-child) {
+    margin-bottom: 16px;
+  }

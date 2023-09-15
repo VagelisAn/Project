@@ -1,0 +1,7 @@
+<ol>
+    <li  *ngFor="let country of countries" [routerLink]="['/languages/', country.id, 'view']">
+      <span>NAME: {{country.name}}    </span>
+      <span> AREA: {{country.area}}  </span>
+      <span> COUNTRY CODE 2: {{country.countryCode2}}</span>
+    </li>
+  </ol>
