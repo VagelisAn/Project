@@ -25,6 +25,10 @@ export class CountryserviceService {
     return this.http.get<Country>(`${baseUrl}/country/${id}`)
   }
 
+  getCountriesPageble(page: number, size: number): Observable<Country[]> {
+    return this.http.get<Country[]>(`${baseUrl}/countries/${page}/${size}`)
+  }
+
   getLanguagesByCountryId(id: number): Observable<Language[]> {
     return this.http.get<Language[]>(`${baseUrl}/languages/${id}`)
   }

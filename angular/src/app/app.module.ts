@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatSortModule
+    MatSortModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

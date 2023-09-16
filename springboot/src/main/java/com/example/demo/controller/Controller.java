@@ -4,11 +4,12 @@ import com.example.demo.dto.CountryDTO;
 import com.example.demo.entity.Countries;
 import com.example.demo.entity.Languages;
 import com.example.demo.services.Services;
+import com.example.demo.services.impl.CountryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +20,12 @@ public class Controller {
     @Autowired
     final Services services;
 
-    public Controller(Services services) {
+    @Autowired
+    final CountryServiceImpl countryService;
+
+    public Controller(Services services, CountryServiceImpl countryService) {
         this.services = services;
+        this.countryService = countryService;
     }
 
     @GetMapping("/countries")
@@ -42,4 +47,12 @@ public class Controller {
     public List<Languages> getLanguageByCountryId(@PathVariable("id") int id) {
         return services.getLanguageByCountryId(id);
     }
+
+
+    @GetMapping("/countries/{page}/{size}")
+    public Page<Countries> getProductList(@PathVariable("page") int page, @PathVariable("size") int size) {
+        Pageable paging = PageRequest.of(page, size);
+        return countryService.findAll(paging);
+    }
+
 }

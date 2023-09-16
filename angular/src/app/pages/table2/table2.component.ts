@@ -16,7 +16,7 @@ export class Table2Component implements OnInit {
     ) { }
 
   ngOnInit(): void {
-      this.countryService.getCountries().subscribe(data =>{ 
+      this.countryService.getCountriesPageble(2,3).subscribe(data =>{ 
         this.countries = data
         console.log(data)
       }
