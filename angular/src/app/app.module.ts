@@ -9,6 +9,12 @@ import { TableComponent } from './pages/table/table.component';
 import { Table2Component } from './pages/table2/table2.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LanguagesComponent } from './components/languages/languages.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ExpandComponent } from './pages/table/expand/expand.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -17,12 +23,18 @@ import { LanguagesComponent } from './components/languages/languages.component';
     ListComponent,
     TableComponent,
     Table2Component,
-    LanguagesComponent
+    LanguagesComponent,
+    ExpandComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

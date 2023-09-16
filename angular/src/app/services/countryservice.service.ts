@@ -17,6 +17,10 @@ export class CountryserviceService {
     return this.http.get<Country[]>(`${baseUrl}/countries`)
   }
 
+  getCountriesWithStats(): Observable<Country[]> {
+    return this.http.get<Country[]>(`${baseUrl}/countrieswithstats`)
+  }
+
   getCountryNameById(id: number): Observable<Country> {
     return this.http.get<Country>(`${baseUrl}/country/${id}`)
   }

@@ -15,12 +15,12 @@ import lombok.Setter;
 @Table(name = "country_stats")
 public class CountryStat {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
-    private Long id;
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
+    @Column(name = "country_id", insertable=false, updatable=false)
+    private int id;
     private int year;
     private int population;
     private double gdp;
-
 
 }

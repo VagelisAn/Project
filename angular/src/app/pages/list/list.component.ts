@@ -16,7 +16,11 @@ export class ListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-      this.countryService.getCountries().subscribe(data => this.countries = data)
+      this.countryService.getCountries().subscribe(data =>{ 
+        this.countries = data
+        console.log(data)
+      }
+        )
   }
 
 }

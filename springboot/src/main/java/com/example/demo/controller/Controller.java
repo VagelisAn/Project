@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.CountryDTO;
 import com.example.demo.entity.Country;
 import com.example.demo.entity.Language;
 import com.example.demo.services.Services;
@@ -17,15 +18,20 @@ import java.util.List;
 public class Controller {
 
     @Autowired
-    final private Services services;
+    final Services services;
 
     public Controller(Services services) {
         this.services = services;
     }
 
     @GetMapping("/countries")
-    public List<Country> getCountryList() {
-        return services.listAll();
+    public List<Country> getCountriesList() {
+        return services.getCountriesList();
+    }
+
+    @GetMapping("/countrieswithstats")
+    public List<CountryDTO> getCountryList() {
+        return services.listCountrriesWithStats();
     }
 
     @GetMapping("/country/{id}")
