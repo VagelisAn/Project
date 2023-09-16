@@ -11,11 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "region_areas")
-public class RegionArea {
+@Table(name = "continents")
+public class Continents {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String regionNaame;
-    private double region_area;
+    @Column(name = "continent_id")
+    private Long continentId;
+    private String name;
 
 }

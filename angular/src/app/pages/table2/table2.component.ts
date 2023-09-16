@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from 'src/app/models/Country';
+import { CountryserviceService } from 'src/app/services/countryservice.service';
 
 @Component({
   selector: 'app-table2',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Table2Component implements OnInit {
 
-  constructor() { }
+  countries: Country[]= [];
+
+  constructor(
+    private countryService: CountryserviceService
+    ) { }
 
   ngOnInit(): void {
+      this.countryService.getCountries().subscribe(data =>{ 
+        this.countries = data
+        console.log(data)
+      }
+        )
   }
 
 }

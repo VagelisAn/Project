@@ -1,4 +1,5 @@
 import { CountryStat } from "./CountryStat";
+import { Region } from "./Region";
 
 export interface Country {
     id?: number,
@@ -8,5 +9,6 @@ export interface Country {
     countryCode2: string,
     countryCode3: string,
     countryStats: CountryStat[],
+    region: Region,
     expanded: boolean;
 }

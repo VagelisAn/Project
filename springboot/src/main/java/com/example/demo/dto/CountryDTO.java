@@ -1,7 +1,5 @@
 package com.example.demo.dto;
 
-import com.example.demo.entity.CountryStat;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

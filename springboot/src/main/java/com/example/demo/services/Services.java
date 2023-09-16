@@ -6,11 +6,10 @@ import java.util.Optional;
 
 import com.example.demo.dto.CountryDTO;
 import com.example.demo.dto.CountryStatDTO;
-import com.example.demo.entity.Country;
-import com.example.demo.entity.CountryStat;
-import com.example.demo.entity.Language;
-//import com.example.demo.repository.CountryLanguageRepository;
-import com.example.demo.mapper.Mapper;
+import com.example.demo.entity.Countries;
+import com.example.demo.entity.CountryStats;
+import com.example.demo.entity.Languages;
+import com.example.demo.mapper.Map;
 import com.example.demo.repository.CountryRepository;
 import com.example.demo.repository.CountryStatRepository;
 import com.example.demo.repository.LanguageRepository;
@@ -34,39 +33,39 @@ public class Services {
 //    @Autowired
 //    private CountryLanguageRepository countryLanguageRepository;
 
-    public List<Country> getCountriesList() {
+    public List<Countries> getCountriesList() {
         return countryRepository.findAll();
     }
 
-    public Country getCountryName(int id) {
-        Optional<Country> country = countryRepository.findById(id);
+    public Countries getCountryName(int id) {
+        Optional<Countries> country = countryRepository.findById(id);
         if(country.isEmpty()){
             throw new RuntimeException("Error");
         }
         return country.get();
     }
 
-    public List<Language> getLanguageByCountryId(int id) {
+    public List<Languages> getLanguageByCountryId(int id) {
         return languageRepository.findLanguageByCountryId(id);
     }
 
     public List<CountryDTO> listCountrriesWithStats() {
 
-        List<Country> countryList = countryRepository.findAll();
+        List<Countries> countriesList = countryRepository.findAll();
         List<CountryDTO> countryDTOS = new ArrayList<>();
 
-        for (Country country: countryList
+        for (Countries countries : countriesList
              ) {
-            CountryDTO countryDto = Mapper.INSTANCE.countryToDto(country);
+            CountryDTO countryDto = Map.INSTANCE.countryToDto(countries);
 
-            System.out.println(country.getName());
+            System.out.println(countries.getName());
             System.out.println(countryDto.getName());
 
-            List<CountryStat> countryStats = countryStatRepository.findCountryStatsById(country.getId());
+            List<CountryStats> countryStats = countryStatRepository.findCountryStatsById(countries.getId());
 
 
             if (!countryStats.isEmpty()) {
-                List<CountryStatDTO> countryStatDTOS = Mapper.INSTANCE.countryStatsToDto(countryStats);
+                List<CountryStatDTO> countryStatDTOS = Map.INSTANCE.countryStatsToDto(countryStats);
                 countryDto.setCountryStats(countryStatDTOS);
             }
             countryDTOS.add(countryDto);

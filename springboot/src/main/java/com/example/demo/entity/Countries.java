@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -16,10 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "countries")
-public class Country {
+public class Countries {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
     @Column(name = "country_id")
     private int id;
     private String name;
@@ -30,9 +27,12 @@ public class Country {
     private String countryCode2;
     @Column(name = "country_code3")
     private String countryCode3;
-//    @Column(name = "region_id")
-//    private Date region;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<CountryStat> countryStats;
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "regionId", referencedColumnName = "region_id")
+    private Regions regions;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="country_id")
+    private List<CountryStats> countryStats;
 }

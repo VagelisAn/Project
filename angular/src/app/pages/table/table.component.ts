@@ -26,25 +26,18 @@ dataSource!: MatTableDataSource<Country>;
 expandedElement: any;
 @ViewChild(MatPaginator) paginator!: MatPaginator;
 @ViewChild(MatSort) sort!: MatSort;
-@ViewChildren("tableRow", { read: ViewContainerRef }) rowContainers: any;
 countries: Country[]= [];
 
   constructor(
-    private countryService: CountryserviceService,
-    private resolver: ComponentFactoryResolver
+    private countryService: CountryserviceService
     ) { }
 
   ngOnInit(): void {
     this.countryService.getCountriesWithStats().subscribe(data =>{ 
-      // this.dataSources = new  Array<MatTableDataSource<Country>>();
-      // for (let country of data) {
-      //   this.setDataSources(country);
-      // }
       this.dataSource = new MatTableDataSource<Country>(data);
       this.dataSource.paginator = this.paginator;
-      // this.dataSource.sort = this.countryTbSort;
+      this.dataSource.sort = this.sort;
       this.countries = data;
-      console.log(data);
   });
 }
 

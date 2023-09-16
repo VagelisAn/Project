@@ -6,17 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "guests")
-public class Guest {
+@Table(name = "languages")
+public class Languages {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "guest_id", sequenceName = "id_sequence", initialValue = 1)
+    @Column(name = "language_id")
     private Long id;
-    private String name;
+    private String language;
+
 
 }

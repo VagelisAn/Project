@@ -12,7 +12,6 @@ import { LanguagesComponent } from './components/languages/languages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ExpandComponent } from './pages/table/expand/expand.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort';
 
@@ -23,8 +22,7 @@ import {MatSortModule} from '@angular/material/sort';
     ListComponent,
     TableComponent,
     Table2Component,
-    LanguagesComponent,
-    ExpandComponent
+    LanguagesComponent
   ],
   imports: [
     BrowserModule,

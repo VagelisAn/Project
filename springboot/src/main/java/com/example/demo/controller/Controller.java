@@ -1,10 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CountryDTO;
-import com.example.demo.entity.Country;
-import com.example.demo.entity.Language;
+import com.example.demo.entity.Countries;
+import com.example.demo.entity.Languages;
 import com.example.demo.services.Services;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,7 @@ public class Controller {
     }
 
     @GetMapping("/countries")
-    public List<Country> getCountriesList() {
+    public List<Countries> getCountriesList() {
         return services.getCountriesList();
     }
 
@@ -35,12 +34,12 @@ public class Controller {
     }
 
     @GetMapping("/country/{id}")
-    public Country getCountry(@PathVariable("id") int id) {
+    public Countries getCountry(@PathVariable("id") int id) {
         return services.getCountryName(id);
     }
 
     @GetMapping("/languages/{id}")
-    public List<Language> getLanguageByCountryId(@PathVariable("id") int id) {
+    public List<Languages> getLanguageByCountryId(@PathVariable("id") int id) {
         return services.getLanguageByCountryId(id);
     }
 }

@@ -13,10 +13,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "country_stats")
-public class CountryStat {
+public class CountryStats {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//    @SequenceGenerator(name = "country_id", sequenceName = "id_sequence", initialValue = 1)
     @Column(name = "country_id", insertable=false, updatable=false)
     private int id;
     private int year;
