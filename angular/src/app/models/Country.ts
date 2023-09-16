@@ -9,6 +9,6 @@ export interface Country {
     countryCode2: string,
     countryCode3: string,
     countryStats: CountryStat[],
-    region: Region,
+    regions: Region,
     expanded: boolean;
 }

@@ -1,1 +1,38 @@
-<p>table2 works!</p>
+<div class="container">
+    <h5 class="text-center mt-3">COUNTRIES</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered p-0 m-0">
+            <thead>
+                <tr>
+                    <th scope="col">Country Name</th>
+                    <th scope="col">Region Name</th>
+                    <th scope="col">Continents Name</th>
+                    <th scope="col">
+                        <th scope="col">Year</th>
+                        <th scope="col">Population</th>
+                        <th scope="col">GDP</th>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let country of countries">
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.regions.name }}</td>
+                    <td>{{ country.regions.continents.name }}</td>
+                    <td> 
+                        <tr scope="row" *ngFor="let st of country.countryStats">
+                            <td>{{ st.year }}</td>
+                            <td>{{ st.population }}</td>
+                            <td>{{ st.gdp }}</td>
+                        </tr>
+                    </td>
+                </tr>
+                <tr scope="row" *ngIf="countries.length === 0">
+                    <td colspan="6" class="text-center">No record found</td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" [length]="totalElements" (page)="nextPage($event)"> </mat-paginator>
+    </div>
+</div>
