@@ -17,25 +17,6 @@ public class CountryServiceImpl implements CountryService{
     private CountryRepositoryPaganation countryRepositoryPaganation;
 
     @Override
-    public Countries save(CountryDTO countryDTO) {
-        return null;
-    }
-
-    @Override
-    public void update(Long id, CountryDTO countryDTO) {
-
-    }
-
-    @Override
-    public void deleteById(Long id) {
-
-    }
-
-    @Override
-    public Optional<Countries> findById(Long id) {
-        return Optional.empty();
-    }
-    @Override
     public Page<Countries> findAll(Pageable pageable) {
         return countryRepositoryPaganation.findAll(pageable);
     }

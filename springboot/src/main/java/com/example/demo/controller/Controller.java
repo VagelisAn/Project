@@ -48,6 +48,10 @@ public class Controller {
         return services.getLanguageByCountryId(id);
     }
 
+    @GetMapping("/regions")
+    public List<String> getRegions() {
+        return services.getRegions();
+    }
 
     @GetMapping("/countries/{page}/{size}")
     public Page<Countries> getProductList(@PathVariable("page") int page, @PathVariable("size") int size) {

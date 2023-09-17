@@ -13,6 +13,7 @@ import com.example.demo.mapper.Map;
 import com.example.demo.repository.CountryRepository;
 import com.example.demo.repository.CountryStatRepository;
 import com.example.demo.repository.LanguageRepository;
+import com.example.demo.repository.RegionRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,8 @@ public class Services {
     @Autowired
     private CountryStatRepository countryStatRepository;
 
-//    @Autowired
-//    private CountryLanguageRepository countryLanguageRepository;
+    @Autowired
+    private RegionRepository regionRepository;
 
     public List<Countries> getCountriesList() {
         return countryRepository.findAll();
@@ -58,11 +59,7 @@ public class Services {
              ) {
             CountryDTO countryDto = Map.INSTANCE.countryToDto(countries);
 
-            System.out.println(countries.getName());
-            System.out.println(countryDto.getName());
-
             List<CountryStats> countryStats = countryStatRepository.findCountryStatsById(countries.getId());
-
 
             if (!countryStats.isEmpty()) {
                 List<CountryStatDTO> countryStatDTOS = Map.INSTANCE.countryStatsToDto(countryStats);
@@ -72,6 +69,10 @@ public class Services {
         }
 
         return countryDTOS;
+    }
+
+    public List<String> getRegions() {
+        return  regionRepository.findAllRegions();
     }
 
 }

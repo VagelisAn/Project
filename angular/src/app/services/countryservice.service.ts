@@ -32,4 +32,8 @@ export class CountryserviceService {
   getLanguagesByCountryId(id: number): Observable<Language[]> {
     return this.http.get<Language[]>(`${baseUrl}/languages/${id}`)
   }
+
+  getRegions(): Observable<String[]> {
+    return this.http.get<String[]>(`${baseUrl}/regions`)
+  }
 }
